@@ -45,6 +45,7 @@ function createRecognition() {
   }
 
   recognition.lang = "pt_BR";
+  recognition.interimResults = true;
 
   recognition.onstart = () => listening = true;
   recognition.onend = () => listening = false;
