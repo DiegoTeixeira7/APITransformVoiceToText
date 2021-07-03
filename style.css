@@ -32,6 +32,7 @@ button {
 .text {
   border-radius: 8px;
   border: 1px solid #835afd;
+  background: #ffffff;
   height: 30em;
   width: 40em;
   padding: 1em;
