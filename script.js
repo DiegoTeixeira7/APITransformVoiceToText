@@ -1,18 +1,38 @@
-const button = document.querySelector('button')
+const buttonRecord = document.querySelector('.button-record')
+const buttonCopy = document.querySelector('.button-copy')
+const buttonClear = document.querySelector('.button-clear')
 const text = document.querySelector('.text')
 
 const recognition = createRecognition();
 let listening = false;
 
-button.addEventListener('click', e => {
+buttonRecord.addEventListener('click', e => {
   if (!recognition) return;
 
   listening ? recognition.stop() : recognition.start();
 
-  button.innerHTML = listening ? 'Aperte para falar' : 'Parar de escutar';
+  buttonRecord.innerHTML = listening ? 'Aperte para falar' : 'Parar de escutar';
 
-  button.classList.toggle('bg-purple-200');
-  button.classList.toggle('text-red-500');
+  buttonRecord.classList.toggle('text-black');
+  buttonRecord.classList.toggle('text-red');
+});
+
+buttonCopy.addEventListener('click', e => {
+  if (listening) return;
+
+  navigator.clipboard.writeText(text.innerHTML);
+
+  buttonCopy.innerHTML = 'Texto copiado';
+
+  setTimeout(() => {
+    buttonCopy.innerHTML = 'Copiar texto';
+  }, 3000);
+});
+
+buttonClear.addEventListener('click', e => {
+  if (listening) return;
+
+  text.innerHTML = '...';
 });
 
 function createRecognition() {

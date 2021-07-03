@@ -1,1 +1,43 @@
 @import url("https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #e9e3ce;
+}
+
+button {
+  border-radius: 8px;
+}
+
+.button-record {
+  background: #00acee;
+  
+}
+
+.button-copy {
+  background: #32cd32;
+}
+
+.button-clear {
+  background: #ff6961;
+}
+
+.text {
+  border-radius: 8px;
+  border: 1px solid #835afd;
+  height: 30em;
+  width: 40em;
+  padding: 1em;
+}
+.text-black {
+  color: #000000;
+}
+
+.text-red {
+  color: #B22222;
+}
