@@ -47,9 +47,20 @@ function createRecognition() {
   recognition.lang = "pt_BR";
   recognition.interimResults = true;
 
-  recognition.onstart = () => listening = true;
-  recognition.onend = () => listening = false;
+  recognition.onstart = () => {
+    listening = true;
+    buttonRecord.innerHTML = 'Parar de escutar';
+    buttonRecord.classList.toggle('text-black');
+  };
+
+  recognition.onend = () => {
+    listening = false;
+    buttonRecord.innerHTML = 'Aperte para falar';
+    buttonRecord.classList.toggle('text-red');
+  };
+
   recognition.onerror = e => console.log('error', e);
+
   recognition.onresult = e => text.innerHTML = e.results[0][0].transcript;
 
   return recognition;
